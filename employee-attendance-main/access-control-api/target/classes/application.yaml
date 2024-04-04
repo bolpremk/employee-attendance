@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: attendance-service
+
+  profiles:
+    active: kafka
+
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017
+      database: attendance
+
+logging:
+  level:
+    root: INFO
+
+server:
+  port: 8801

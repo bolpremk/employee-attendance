@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      routes:
+        - id: report-api
+          uri: http://localhost:8802
+          predicates:
+            - Path=/report/**
+          filters:
+            - name: AuthFilter
+        - id: access-control-api
+          uri: http://localhost:8801
+          predicates:
+            - Path=/employee/**
+          filters:
+            - name: AuthFilter
+        - id: jwt-api
+          uri: http://localhost:9898
+          predicates:
+            - Path=/auth/**
+
+logging:
+  level:
+    root: DEBUG
+
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8050/eureka/

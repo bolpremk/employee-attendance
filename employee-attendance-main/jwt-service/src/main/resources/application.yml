@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: JWT-Service
+
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+  datasource:
+    url: jdbc:h2:mem:auth
+  jpa:
+    showSql: true
+    hibernate:
+      ddlAuto: create-drop
+
+server:
+  port: 9898
+
+management:
+  endpoint:
+    web:
+      exposure:
+        include: beans,health,info
+
+logging:
+  level:
+    root: DEBUG
